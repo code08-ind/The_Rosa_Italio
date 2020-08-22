@@ -1,0 +1,665 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin|Herr+Von+Muellerhoff|Source+Sans+Pro:400,900&display=swap');
+/*Global styles*/
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;/*allows proper padding*/
+}
+
+:root{
+    --main-font: 'Source Sans Pro', sans-serif;
+    --secondary-font: 'Herr Von Muellerhoff', cursive;
+    --body-font: 'Cabin', sans-serif;
+    --main-font-color-dark: #252525;
+    --secondary-font-color: #c59d5f;
+    --body-font-color: #515151;
+}
+html{
+    font-size: 10px;
+    font-family: var(--body-font);
+    color: var(--body-font-color);
+    scroll-behavior: smooth;
+}
+body{
+    overflow-x: hidden;
+}
+section{
+    padding: 3.9rem 0;
+    overflow: hidden;
+}
+img{
+    width: 95%;
+    justify-content: center;
+    margin-left:10px;
+    max-width: 100%;/*will allow thave full width in the section without overflowing*/
+}
+li.nav-item a{
+    text-decoration: none;
+}
+p{
+    font-size: 1.6rem;
+}
+.container{
+    width: 100%;
+    max-width: 122.5rem;/*max width upto this but once it gets less to this value will occpy 100% width*/
+    margin: 0 auto;
+    padding: 0 2.4rem;
+}
+header{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background-image: linear-gradient(to bottom ,rgba(0,0,0,0.5),transparent);
+}
+.nav{
+    height: 7.2rem;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.menu-toggle{
+    color:#fff;
+    font-size: 2.2rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right:2.5rem;
+    cursor: pointer;
+    z-index:1500;
+}
+.fa-times{
+    display: none;
+}
+.nav-list{
+    list-style: none;
+    position: absolute;
+    top: 0;
+    width: 80%;
+    left:0;
+    height: 100vh;
+    background-color: transparent;
+    padding: 4.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    z-index: 1250;
+    transform: translateX(-100%);
+    transition: transform 0.7s;
+}
+.nav-list::focus{
+    opacity:0;
+}
+.nav::before{
+    content: '';
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    background-color:rgba(255, 255, 255, 0);
+    z-index: 1000;
+    opacity: 1;
+    transform: scale(0);
+    transition: opacity 0.5s;
+}
+.open .fa-times{
+    display: block;
+}
+.open .fa-bars{
+    display: none;
+}
+.open .nav-list{
+    transform: translateX(0);
+}
+.open .nav::before{
+    opacity: 1;
+    transform: scale(1);
+}
+.nav-item{
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+}
+.nav-link{
+    display: block;
+    color:#fff;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    letter-spacing: 2.5px;
+    margin-right: -2px;
+    transition: color 0.5s;
+}
+.nav-link:hover{
+    color:var(--secondary-font-color);
+    transition: all 0.6s ease;
+}
+/*hero starts*/
+.hero{
+    width:100%;
+    height: 95vh;
+    background: url("new.jpg") center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.sub-headline{
+    font-size: 12.5rem;
+    font-weight: 200;
+    font-family: 'Herr Von Muellerhoff', cursive;
+    color:var(--secondary-font-color);
+    text-shadow: brown;
+    letter-spacing:2px;
+    line-height: 0.5;
+    opacity: 0;
+    animation: fadeUp 0.5s forwards;
+    animation-delay: 0.5s;
+}
+h5{
+    color:var(--secondary-font-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    letter-spacing: 2.5px;
+    margin-right: -3px;
+    opacity:0;
+    animation:fadeDown .5s forwards;
+    animation-delay: 0.5s;
+}
+.first-letter{
+    text-transform: uppercase;
+    font-size: 14.3rem;
+}
+.headline{
+    font-size:4rem ;
+    letter-spacing: 1px;
+    color:white;
+    font-family: var(--main-font);
+    font-weight: 700;
+    margin-right: 0.5rem;
+    margin-top: 2.5rem;
+    animation: scale 0.5s forwards;
+}
+span.main{
+    color:var(--secondary-font-color);
+    font-size:6rem;
+    font-family: var(--secondary-font);
+    letter-spacing: 1.1rem;
+}
+.separator{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.line{
+    max-width: 8.4rem;
+    width: 100%;
+    height: 0.25rem;
+    background-color: white;
+    position: relative;
+    opacity: 0;
+    animation: grow 2s forwards;
+    animation-delay: 0.8s;
+}
+.line-right::before,
+.line-left::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 0.6rem solid transparent;
+    opacity: 0;
+    animation: grow 0.5s forwards;
+    animation-delay: 1.2s;
+}
+.line-right::before{
+    border-right-color:#fff;
+    right:0; 
+}
+.line-left::before{
+    border-left-color: #fff;
+    left:0; 
+}
+.single-animation{
+    opacity: 0;
+    animation: fadeDown 0.5s forwards;
+    animation-delay: 1.5s;
+}
+.asterisk{
+    font-size: 1.2rem;
+    color:var(--secondary-font-color);
+    margin:0 1.4rem;
+    font-weight: bold;
+    opacity: 0;
+    animation: spin 0.5s forwards;
+    animation-delay: 0.7s;
+}
+.btn{
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: -2px;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.cta-btn{
+    font-size: 1.2rem;
+    background-color:var(--secondary-font-color);
+    border: 0.2rem solid black;
+    border-radius: 0.8rem;
+    padding: 0.9rem 1.2rem;
+    color:black;
+    font-weight: 800;
+    font-family: var(--main-font);
+}
+.cta-btn:hover,.cta-btn:focus{
+    background-color: black;
+    color:var(--secondary-font-color);
+    border:0.2rem solid var(--secondary-font-color);
+    transition: all 0.7s ease;
+}
+/*Discover my story section starts*/
+.global-headline{
+    text-align: center;
+    margin-right: 3.9rem;
+    margin-top: 1.4rem;
+}
+.discover-our-story .global-headline{
+    margin-top: 6.8rem;
+}
+.global-headline .asterisk{
+    color:var(--body-font-color);
+    margin: 2.4rem 0;
+}
+.headline-dark1{
+    color: var(--main-font-color-dark);
+    margin-top: 1.3rem;
+    letter-spacing: 0.7rem;
+    margin-right: 0.7rem;
+}
+.global-headline .sub-headline{
+    letter-spacing: -0.1rem;
+    line-height: 0.42;
+}
+.restaurant-info{
+    text-align: center;
+}
+.restaurant-description{
+    margin-bottom: 3rem;
+}
+.restaurant-description p{
+    line-height: 1.6;
+    margin-bottom: 2.4rem;
+}
+.body-btn{
+    font-size:1.4rem;
+    color:var(--main-font-color-dark);
+    letter-spacing: 4px;
+    position: relative;
+    transition: color 0.5s;
+}
+.body-btn::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 2px;
+    width: 100%;
+    background-color: var(--main-font-color-dark);
+    transition: background-color 0.5s;
+}
+.btn:hover,.btn:focus{
+    color:var(--secondary-font-color);
+}
+.btn:hover::before,.btn:focus::before{
+    background-color: var(--secondary-font-color);
+}
+/*Tasteful recipies*/
+.tasteful-recipies{
+    background: url('hero.jpg') center no-repeat;
+    background-size: cover;
+}
+.between{
+    min-height:65vh;
+    display: flex;
+    align-items: center;
+}
+h1.headline-dark{
+    color:white;
+    text-align: center;
+    margin-top: 3rem;
+}
+h2.sub-headline{
+    line-height: 2rem;
+    letter-spacing: 4px;
+    margin-top: 8.5rem;
+}
+/*recipies ends*/
+/* menu section starts */
+.image-group{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 1.5rem;
+}
+.discover-our-menu .restaurant-description{
+    padding-top: 4.5rem;
+    margin-bottom: 0;
+}
+/* menu section ends */
+/* blends start */
+.perfect{
+    background: url('blends.jpg') center no-repeat;
+    background-size: cover;
+}
+section.subscribe div.one{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+section.subscribe img{
+    width:90%;
+}
+section.subscribe .container div:first-child{
+    flex: 1;
+}
+section.subscribe .container div:last-child{
+    flex: 1;
+}
+section.subscribe{
+    background: url('pic6.jpg') center no-repeat;
+    background-size: cover;
+    color: white;
+    font-family: var(--body-font);
+}
+section.subscribe h1{
+    font-size: 4.5rem;
+    font-weight: 800;
+    font-family: var(--secondary-font);
+    letter-spacing: 2px;
+    line-height: 4rem;
+}
+section.subscribe input{
+    height: 3rem;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+section.subscribe button.btn1{
+    background-color: rgb(38, 183, 231);
+    color:white;
+    height: 2rem;
+    padding:1rem 1rem;
+    opacity: 0.8;
+    border:1px solid black;
+    padding-top: 2px;
+}
+section.subscribe button.btn1:hover{
+    background-color: rgb(38, 183, 231);
+    color:white;
+    opacity: 1;
+    border:1.5px solid black;
+    transition: all 0.5s ease;
+}
+section.subscribe p{
+    font-size: 1.6rem;
+    font-weight: 400;
+    font-family: var(--main-font);
+    padding-top: 1.4rem;
+}
+form.form-inline div.form-group{
+    margin-right: 4rem;
+}
+div.blurb h2{
+    font-family: var(--secondary-font);
+    color: var(--secondary-font-color);
+    font-size: 8rem;
+}
+div.blurb p{
+    font-family: var(--main-font);
+    font-size: 3rem;
+}
+ul{
+    list-style: none;
+}
+ul li{
+    font-size: 2rem;
+    font-family: var(--body-font);
+    line-height: 4rem;
+    
+}
+section.location div.heading{
+    padding: 4rem 0;
+    flex:1;
+}
+section.location div.map{
+    flex:1;
+}
+/* footer starts */
+footer{
+    text-align: center;
+    color: white;
+    background-color: #121212;
+    position: relative;
+    padding: 4rem 10rem;
+}
+.back-to-top{
+    position: absolute;
+    background-color: #121212;
+    height:7rem;
+    width:7rem;
+    position: absolute;
+    top:-3rem;
+    left:50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+}
+.back-to-top i{
+   color:white;
+   padding: 2rem;
+   display: block;
+   font-size: 2rem;
+   animation: up 2s infinite;
+}
+.back-to-top i:hover,.back-to-top i:focus{
+    color:var(--secondary-font-color);
+    text-decoration: underline #121212;
+    transition: all 0s ease;
+}
+.footer-content{
+    overflow:hidden;
+}
+.footer-content h1{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+.footer-content h4{
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 100;
+}
+.footer-content .asterisk{
+    margin:2.4rem 0;
+}
+.footer-content.about{
+    margin-bottom: 5.4rem;
+}
+.footer-content.about p{
+    line-height: 2;
+}
+.social-icons{
+    margin-bottom:5.4rem;
+    display: flex;
+    justify-content: center;
+}
+.social-icons a{
+    color:white;
+    font-size: 2rem;
+    padding: 0.8rem 2rem;
+    opacity: 0.9;
+}
+.social-icons a:hover ,.social-icons a:focus{
+    color:var(--secondary-font-color);
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+section{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+div.footer-content.about h1{
+    font-weight: 700;
+    color:black;
+    font-family: var(--main-font);
+}
+div.copyright{
+    font-size: 1.5rem;
+}
+/* media queries start as we have created the mobile version first */
+@media screen and (min-width:900px){
+    section{
+        padding:7.9rem ;
+    }
+
+    .menu-toggle{
+        display: none;
+    }
+
+    .nav{
+        justify-content: space-between;
+    }
+
+    .nav-list{
+        position: initial;
+        width: initial;
+        height: initial;
+        padding: 0;
+        background-color: transparent;
+        justify-content: initial;
+        flex-direction: row;
+        transform: initial;
+        transition: initial;
+        text-decoration: none;
+        border: none;
+    }
+
+    .nav-item{
+        margin:0 0.1rem;
+        border-bottom: none;
+    }
+
+    .nav-item:last-child{
+        margin-right: 0;
+    }
+    .nav-link{
+        font-size: 1.3rem;
+    }
+    .active{
+        position: relative;
+    }
+
+    .active::before{
+        content: '';
+        color: white;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -3px;
+        left:0;
+    }
+
+    .sub-headline{
+        font-size: 10rem;
+    }
+
+    .first-letter{
+        font-size: 12.2rem;
+    }
+
+    .headline{
+        font-size: 4.7rem;
+        letter-spacing: 0.8rem;
+    }
+    .line{
+        max-width: 11.4rem;
+    }
+
+    .restaurant-info{
+        display: flex;
+        align-items: center;
+    }
+
+    .restaurant-info > div{
+        flex:1;
+    }
+
+    .padding-right{
+        padding-right: 7rem;
+    }
+}
+/* Animations */
+@keyframes fadeUp {
+    0%{
+        transform: translateY(4rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes scale {
+    0%{
+        transform: scale(2);
+    }
+    100%{
+        opacity: 1;
+        transform:scale(1);
+    }
+}
+@keyframes grow {
+    0%{
+        width:0;
+    }
+    100%{
+        opacity: 1;
+       width:100%;
+    }
+}
+@keyframes spin {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        opacity: 1;
+        translate: rotate(-360deg);
+    }
+}
+@keyframes fadeDown {
+    0%{
+        transform: translateY(-1rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes up {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+}

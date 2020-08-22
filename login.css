@@ -1,0 +1,147 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to right bottom, rgba(134, 250, 2, 0.945), rgb(243, 226, 71,0.8),rgb(226, 155, 61),rgb(43, 255, 23));
+    height: 100vh;
+}
+
+.container {
+    height: 600px;
+    width: 350px;
+    box-shadow: 0px 15px 30px rgb(22, 22, 22);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    border-radius: 20px;
+    background: linear-gradient(to right top,rgb(19, 240, 111), rgb(155, 248, 6),rgb(97, 248, 9),rgb(95, 243, 9) );
+}
+
+.circleTop {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: inset 0px 15px 25px rgb(104, 102, 102), 0px 5px 15px rgb(114, 113, 113);
+    margin-top: -120px;
+    margin-left: -50px;
+}
+
+.circleBottom {
+    height: 300px;
+    width: 500px;
+    border-radius: 50%;
+    background-color: white;
+    margin-top: 200px;
+    margin-left: 200px;
+    box-shadow: inset 0px 5px 15px rgb(90, 89, 89), 0px 5px 15px rgb(77, 75, 75);
+}
+
+.content {
+    height: 400px;
+    width: 250px;
+    float: right;
+    margin-top: -70px;
+    margin-right: 0px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background: linear-gradient(to right top, rgb(236, 234, 74), rgb(187, 238, 4),rgb(252, 82, 3));
+    box-shadow: 0px 5px 15px rgb(22, 21, 21);
+    color: white;
+    font-family: 'Raleway', sans-serif;
+}
+
+.content h1 {
+    margin-left: 10px;
+    padding: 20px;
+    color: white;
+    padding-bottom: 40px;
+    font-weight: 800;
+    margin-top: 25px;
+    letter-spacing: 4px;
+}
+
+.form {
+    border-radius: 5px;
+    border: none;
+    margin-top: 5px;
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: rgba(221, 235, 240, 0.4);
+    color: rgb(145, 32, 145);
+}
+
+.form:focus {
+    outline: none;
+    /* border: 1px solid rgb(0, 225, 255); */
+}
+
+.form-group {
+    margin-left: 30px;
+}
+
+p {
+    margin-left: 30px;
+    margin-top: 10px;
+    font-size: small;
+}
+
+p a {
+    color: white;
+    text-decoration: none;
+}
+
+button {
+    margin-left: 50px;
+    margin-top: 50px;
+    padding: 10px 60px;
+    border: none;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0px 5px 10px grey;
+}
+
+button:hover,button:focus{
+    outline: none;
+    cursor: pointer;
+    color:white;
+    background-color:rgb(14, 248, 6);
+    transition: all 0.6s ease;
+}
+
+button a {
+    text-decoration: none;
+    color:rgb(248, 171, 6);
+    font-size: large;
+}
+
+button a:hover,button a:focus{
+    color:white;
+    transition: all 0.1s ease;
+}
+
+.icons {
+    margin-left: 90px;
+    margin-top: 30px;
+}
+
+.icons i {
+    padding-right: 10px;
+    font-size: larger;
+    transition: 0.3s;
+}
+
+.icons a {
+    text-decoration: none;
+    color: white;
+}
+
+.icons i:hover {
+    transform: scale(1.04);
+    color: rgb(219, 116, 214);
+}

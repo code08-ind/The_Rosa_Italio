@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Sign Up Form</title>
+</head>
+
+<body>
+    <form action="index.html" method="GET">
+    <div class="container">
+
+        <div class="circleTop"></div>
+        <div class="content">
+            <h1>THE ROSA</h1>
+            <div class="form-group">
+                <label for="">Name</label>
+                <br>
+                <input type="text" class="form" name="" id="Name" aria-describedby="helpId" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+                <label for="">Email</label>
+                <br>
+                <input type="email" class="form" name="" id="Email" aria-describedby="helpId" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <label for="">Password</label>
+                <br>
+                <input type="password" class="form" name="" id="Password" placeholder="Password"  minlength="4"
+                maxlength="8" 
+                title="Enter Password consisting of 4-8 hexadecimal digits with ,uppercase letters , lower case letters , numbers and special characters in this order."    autocomplete="new-password"  required>
+            </div>
+            <div class="form-group">
+                <label for="">Phone Number</label>
+                <br>
+                <input type="text" class="form" name="" id="Phone" placeholder="Phone Number" required>
+            </div>
+            <div class="icons">
+                <a href="http://www.google-plus.com"><i class="fa fa-google-plus-official" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.facebook.com"><i class="fa fa-facebook-square" aria-hidden="true"></i>
+                </a>
+                <a href="http://www.twitter.com"><i class="fa fa-twitter-square" aria-hidden="true"></i>
+                </a>
+            </div>
+            <button onclick="validate()" type="button"><a href="#">Sign Up</a></button>
+
+        </div>
+        <div class="circleBottom"></div>
+
+    </div>
+    </form>
+    <h6 style="text-align: center; margin-bottom: 12rem; color:blueviolet">&copy; Aryan Garg @ 2020</h6>
+</body>
+<script type="text/javascript" src="styles.js"></script>
+</html>
